@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-ENV MINIO_VER=2017-10-27T18-59-02Z
+ENV MINIO_VER=2017-11-22T19-55-46Z
 
 LABEL maintainer="Ian Martin <ian@imartin.net>" license="MIT" description="Repackage of minio into an Openshift compatible image" \
   minio_version=${MINIO_VER}
