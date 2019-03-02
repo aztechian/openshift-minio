@@ -1,0 +1,12 @@
+---
+version: "3"
+services: 
+  minio:
+    build: .
+    image: minio:dev
+    environment: 
+      MINIO_SECRET_KEY: testing
+    volumes: 
+      - ./data:/data
+    ports: 
+      - "9000:9000"

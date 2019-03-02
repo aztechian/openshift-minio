@@ -1,10 +1,11 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
-ENV MINIO_VER=2018-06-29T02-11-29Z
+ENV MINIO_VER=2019-02-26T19-51-46Z 
 
 LABEL maintainer="Ian Martin <ian@imartin.net>" license="MIT" description="Repackage of minio into an Openshift compatible image" \
   minio_version=${MINIO_VER}
 
+ENV MINIO_UPDATE off
 ENV MINIO_ACCESS_KEY="demoaccesskey"
 ENV MINIO_SECRET_KEY="mysecret"
 
@@ -16,7 +17,8 @@ RUN apk -Uuv add curl && \
   chmod -R g=u /minio /data && \
   chmod +x /minio/minio && \
   apk --purge -v del curl && \
-  rm -rf /var/cache/apk/*
+  rm -rf /var/cache/apk/* && \
+  echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf
 
 USER 8991
 WORKDIR /minio
