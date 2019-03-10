@@ -26,4 +26,4 @@ VOLUME ["/data"]
 EXPOSE 9000
 
 ENTRYPOINT [ "/minio/minio" ]
-CMD ["server", "--config-dir", "/minio/.minio", "/data"]
+CMD ["server", "/data"]
