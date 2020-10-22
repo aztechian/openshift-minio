@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.12
 
 ENV MINIO_VER=2020-10-18T21-54-12Z
 
